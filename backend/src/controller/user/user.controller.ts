@@ -47,7 +47,7 @@ export class UserController {
   async login(@Req() req: any) {
     const accessToken = req.headers.authorization;
     console.log(accessToken);
-    const { token } = await this.userService.decodeAccessToken(
+    const { token }: any = await this.userService.decodeAccessToken(
       accessToken.split(' ')[1],
     );
 

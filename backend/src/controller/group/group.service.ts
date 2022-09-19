@@ -98,7 +98,8 @@ export class GroupService {
     const user: any = await this.userRepository.findOne({
       where: { id: userId },
     });
-    const cnt = Math.ceil(Math.random() * 3);
+    const cnt = Math.ceil(Math.random() * 2);
+    const arr33 = [2, 3, 2];
     const complete = await this.activityRepository
       .createQueryBuilder('a')
       .leftJoinAndSelect('a.User', 'user')
@@ -110,7 +111,7 @@ export class GroupService {
 
     const userGroupList = await this.groupRepository
       .createQueryBuilder('group')
-      .limit(cnt)
+      .limit(arr33[cnt])
       .orderBy('group.id', 'DESC')
       .getMany();
 
@@ -138,7 +139,7 @@ export class GroupService {
     const groupCategoryId: any = [1, 2, 1, 1];
     let k = 0;
     result.group = userGroupList.map((x: any, i) => {
-      const cnt = Math.ceil(Math.random() * 5);
+      const cnt = Math.ceil(Math.random() * 8);
       let name = [];
       ++k;
       for (let j = 0; j < cnt; j++) {
